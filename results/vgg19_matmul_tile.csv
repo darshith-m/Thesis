@@ -1,0 +1,7 @@
+configuration,input_batch,input_width,input_height,weight_batch,weight_width,weight_height,output_batch,output_width,output_height,tiled_output_batch,tiled_output_width,tiled_output_height,tiled_kernel_width,actual_input_batch,actual_input_width,actual_input_height,actual_weight_batch,actual_weight_width,actual_weight_height,actual_output_batch,actual_output_width,actual_output_height,number_of_tiles,simulation_cycles,total_power,area,runtime_in_s,gflops,gflops_per_watt,energy_consumed,flop_count
+vgg19_tile_matmul_1_0000,1,1,25088,1,25088,4096,1,1,4096,0,0,0,0,1,1,128,1,128,128,1,1,128,6272.0,865467008.0,0.00439,34421.0,8.65467,0.023747,5.409339,0.0379940013,205520896
+vgg19_tile_matmul_2_0000,1,1,4096,1,4096,4096,1,1,4096,0,0,0,0,1,1,128,1,128,128,1,1,128,1024.0,141300736.0,0.00439,34421.0,1.413007,0.023747,5.409339,0.00620310073,33554432
+vgg19_tile_matmul_3_0000,1,1,4096,1,4096,1000,1,1,1000,0,0,0,0,1,1,128,1,128,125,1,1,125,256.0,34511104.0,0.00454,36055.0,0.345111,0.023737,5.228414,0.00156680394,8192000
+vgg19_tile_matmul_1_1144,1,1,25088,1,25088,4096,1,1,4096,1,1,4,4,1,1,128,1,128,128,1,1,128,6272.0,633271296.0,0.00771,68090.0,6.332713,0.032454,4.209339,0.04882521723,205520896
+vgg19_tile_matmul_2_1144,1,1,4096,1,4096,4096,1,1,4096,1,1,4,4,1,1,128,1,128,128,1,1,128,1024.0,103391232.0,0.00784,68280.0,1.033912,0.032454,4.139541,0.00810587008,33554432
+vgg19_tile_matmul_3_116416,1,1,4096,1,4096,1000,1,1,1000,1,1,64,16,1,1,128,1,128,125,1,1,125,256.0,31124736.0,0.0144,117726.0,0.311247,0.02632,1.827778,0.0044819568,8192000

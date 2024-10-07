@@ -1,0 +1,29 @@
+\fancyhf{}
+\fancyfoot[CO, CE]{ \thepage}
+
+\chapter{Conclusion}
+\label{chapter5}
+
+\section{Thesis Contribution}
+
+This thesis has made several substantial contributions to the field of hardware acceleration for deep learning applications, specifically through the use of the SODA framework. The key contributions are as follows:
+
+\begin{enumerate}
+    \item Addressed loop optimization challenges: This work resolves loop optimization challenges that could not be directly implemented in the SODA framework. The thesis addresses these limitations and provides solutions to effectively integrate loop optimizations into the hardware synthesis process, enabling the use of techniques such as permutation, tiling, and unrolling. 
+    \item Synthesis of larger neural networks to ASIC: By refining the SODA framework and strategically clipping layer dimensions, this thesis facilitates the synthesis of larger neural network architecture onto ASICs.
+    \item Design Space Exploration (DSE) on neural networks: A comprehensive exploration was conducted across multiple neural network architectures  and loop optimization strategies, to understand the implications. This exploration offered crucial insights into the power, performance, and area trade-offs, guiding optimal neural network mapping to hardware.
+    \item Heuristic based analysis to narrow exploration space: The development and application of heuristics based on the analysis of DSE results significantly narrowed the exploration space. These heuristics help pinpoint more viable design configurations quickly, enhancing the efficiency and speed of the design process by focusing on the most promising configurations of the design space.
+\end{enumerate}
+
+\section{Future Work}
+
+For future work, there are several promising directions to extend this research and further improve hardware synthesis and performance optimizations.
+
+\begin{itemize}
+    \item Implement loop pipelining in DSE: Incorporating loop pipelining into DSE could significantly enhance throughput and parallelism. this would involve investigating the best pipelining strategies to maximize resource utilization of the hardware. By doing so, the hardware can achieve faster execution times without sacrificing efficiency.
+    \item Explore combinations of loop optimizations: Future work could explore combinations of loop optimizations applied simultaneously. Investigating interaction of loop optimizations could lead to better utilization of resources and improvement in performance.
+    \item Apply Linalg tiling with Affine tiling to larger CNN layer: Applying a combination of Linalg and Affine tiling to larger layers of CNN may result in significant improvement in performance. Thorough exploration is required for selecting optimal Linalg and Affine
+    level tile sizes. 
+    \item Explore loop optimizations for pooling, activation, and skip connection layers: Optimizations in the current work have only been explored on CNN, D-CNN and FC layers. Extending the exploration on pooling, activation, and skip connection layers can play a critical role in more comprehensive optimizations across the entire network.
+    \item Explore the effects of quantization on CNN performance: Using operations like \textit{'linalg.conv\_2d\_nhwc\_hwcf\_q'} at Linalg level, quantization can be explored. Quantization can reduce computational complexity and resource consumption. Investigating this would help in understanding the balance between performance gains and potential accuracy loss. 
+\end{itemize}

@@ -1,0 +1,12 @@
+\begin{abstract}
+
+SODA (Software-Defined Accelerator) is a framework that simplifies the generation of hardware accelerators from high-level languages such as Python, using the Multi-Level Intermediate Representation (MLIR) compiler framework. Neural network models utilizing Python libraries such as TensorFlow or PyTorch can be synthesized into chip designs through SODA framework.\\
+
+This thesis explores loop and memory optimization techniques using the SODA framework to enhance computational efficiency in neural network hardware design. Loop transformations like permutation, tiling, and unrolling are applied to optimize performance, while memory access is improved through Temporary Buffer Allocation and Alloca Buffer Promotion. To handle larger neural networks within hardware limits, dimensional clipping is used, involving computation tiling and estimating the required number of tiles and clock cycles.\\
+
+A Design Space Exploration (DSE) tool was developed to explore the above-mentioned optimizations on neural network layers such as 2D convolution, 2D depthwise convolution, and Fully Connected layers. By analyzing performance metrics, heuristics are derived that narrow the exploration space, reducing the time taken to reach optimal configurations.\\
+
+Results demonstrate that hardware design for large neural networks can be significantly improved through advanced loop transformations within the SODA framework. This study enables the deployment of complex neural networks in hardware-constrained environments, contributing to more efficient hardware synthesis processes and providing valuable insights into affine-level loop optimization strategies.
+
+
+\end{abstract}

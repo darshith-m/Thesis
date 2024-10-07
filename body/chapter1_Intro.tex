@@ -1,0 +1,82 @@
+\fancyhf{}
+\fancyfoot[CO, CE]{ \thepage}
+
+\chapter{INTRODUCTION}
+\label{chapter1}
+
+Deep Learning has emerged as a transformative technology in fields such as computer vision and natural language processing, achieving remarkable advancements through complex neural network architectures. These deep neural networks demand substantial computational resources and time as the complexity of the models increase. This demands for a hardware design that excels at performance and energy efficiency.
+
+To address the demands, there is a requirement for a specialized hardware to run these computations. Specialized hardware such as Graphics Processing Unit (GPU) or Neural Processing Unit (NPU) in modern day devices run deep learning tasks efficiently. Apart from this, Field-Programmable Gate Arrays (FPGAs) acceleration have gained prominence due to reconfigurability. FPGAs allow custom hardware implementation of neural network architectures and enables optimizing computational resources.
+
+However, speed of generating such hardware accelerators is a critical factor. Traditional hardware design can be time-consuming and requires specialized expertise, which hinders the rapid development of specialized hardware. The ability to quickly generate and optimize hardware design is crucial to keep up with the fast-evolving field of deep learning. SODA framework  \cite{BohmAgostini2022BridgingPT} and High-Level Synthesis (HLS) tool aim to accelerate the hardware design process by allowing users to describe hardware at a higher level of abstraction using Python. This approach drastically reduces development time and bridges the gap between software development and hardware implementation, enabling faster prototyping and efficient hardware accelerators for deep learning applications.
+
+\section{Deep Learning Architectures}
+
+Deep learning architectures are a class of neural networks with multiple layers designed to automatically learn patterns from large amounts of data. These architectures, such as Convolutional Neural Networks (CNNs), Recurrent Neural Networks (RNNs), and Transformers, have the capability to model complex, non-linear relationships in data by learning hierarchical features. CNNs are particularly well-suited for image processing tasks, RNNs for sequential data like time series or text, and Transformers have revolutionized natural language processing (NLP) by enabling deep understanding of language and context. The ability of these networks to improve accuracy as more data becomes available has made them foundational to the field of artificial intelligence (AI).
+
+In today’s world, deep learning is ubiquitous across numerous industries and applications. In computer vision, deep learning powers tasks like facial recognition, object detection, and autonomous vehicles. It plays a vital role in NLP applications such as machine translation, chatbots, and speech recognition. In healthcare, deep learning is used for medical imaging, diagnostics, and personalized medicine. Other industries like finance, e-commerce, and entertainment leverage deep learning for fraud detection, recommendation systems, and predictive analytics. Its ability to learn from data and continually adapt makes deep learning one of the most transformative technologies of the modern era.
+
+\section{Compilers}
+
+From the perspective of neural network architectures, compilers play a crucial role in efficiently translating high-level deep learning models into executable code that can run on hardware such as CPUs, GPUs, FPGAs, or specialized accelerators (like TPUs). Neural networks, especially deep learning models, consist of multiple layers with complex operations, which require substantial computational resources. Compilers designed for neural networks optimize these models by transforming them into efficient hardware-executable representations, ensuring that tasks like matrix multiplications, convolutions, and activation functions are performed efficiently. These optimizations help bridge the gap between software design and hardware implementation.
+
+The importance of such optimizations cannot be overstated, particularly in the context of deploying deep learning models on edge devices, cloud servers, or custom hardware accelerators. Without compiler-level optimizations, the execution of neural networks can be inefficient, leading to higher energy consumption, longer inference times, and increased hardware resource usage. Optimizations like loop unrolling, tiling, fusion, and memory management ensure that computations are parallelized, memory access is minimized, and hardware resources are utilized efficiently. These optimizations ultimately lead to faster inference, lower power consumption, and smaller hardware footprints, making deep learning models feasible for real-time applications and resource-constrained environments.
+
+\subsubsection{MLIR}
+
+MLIR (Multi-Level Intermediate Representation) \cite{mlir} is a flexible compiler framework designed to represent code at various abstraction levels, making it highly suitable for optimizing neural network architectures. In the context of this thesis, MLIR can be leveraged to optimize the translation of deep learning models into efficient hardware implementations. By representing neural network operations at different stages—ranging from high-level abstract models to low-level hardware-specific instructions—MLIR enables a more structured optimization process. It allows for transformations like loop unrolling, tiling, fusion, and parallelization to be applied at multiple levels of abstraction. This multi-level approach helps target both general-purpose processors and custom accelerators more effectively.
+
+In this thesis, MLIR can be used to enhance the SODA framework by allowing for fine-grained optimizations of deep learning layers, such as 2D Convolutions and Fully Connected layers. MLIR's modular architecture facilitates the incorporation of custom optimization passes tailored to the specific characteristics of the hardware, thus improving power, performance, and area (PPA) efficiency. By using MLIR to automate the design space exploration and hardware synthesis, the thesis explores optimal configurations for neural networks, ensuring that the final hardware implementations are both performance and resource-efficieny oriented.
+
+\section{High-Level Synthesis}
+
+High-Level Synthesis (HLS) is a process in which a high-level algorithm, typically written in languages like C, C++, or SystemC, is automatically transformed into hardware descriptions such as Verilog or VHDL. HLS abstracts away the complexities of traditional hardware design, allowing developers to work at a higher level of abstraction while still generating hardware-optimized designs. It automates the translation of software algorithms into hardware, enabling faster prototyping and reducing the development time for complex systems such as digital signal processing, cryptography, and machine learning accelerators.
+
+HLS is commonly used in applications where custom hardware accelerators are needed to improve performance and power efficiency. It finds applications in fields such as telecommunications, automotive systems, and embedded computing. One of its key applications is in the design of Field Programmable Gate Arrays (FPGAs) and Application-Specific Integrated Circuits (ASICs), where it can be used to convert high-level functional descriptions of algorithms into hardware, reducing the need for manual RTL design. In industries like aerospace, video processing, and AI, HLS enables the rapid development of complex hardware systems that meet stringent performance and power constraints.
+
+HLS plays a critical role in accelerating neural networks by automating the design of specialized hardware for deep learning algorithms. Neural networks involve computationally intensive operations like matrix multiplications, convolutions, and non-linear activations, which can significantly benefit from hardware acceleration. HLS allows for these operations to be optimized for specific hardware targets such as FPGAs and ASICs, improving both speed and energy efficiency. By utilizing HLS, hardware designers can exploit parallelism, optimize memory access patterns, and fine-tune hardware for specific layers (such as Convolutions and Fully Connected layers), all of which are crucial for the high-performance deployment of deep learning models in edge and cloud environments.
+
+\subsubsection{Bambu}
+
+This thesis utilizes the open-source High-Level Synthesis (HLS) framework, Bambu \cite{ferrandi2021bambu}, which provides a robust environment for conducting research in HLS, high-level verification, debugging, and FPGA/ASIC design. Bambu supports input in the form of standard C/C++ specifications, as well as intermediate representations (IRs) from widely-used compilers like Clang/LLVM and GCC. This flexibility in input formats enables the Electronic Design Automation (EDA) research. 
+
+The framework is integrated with various synthesis and verification backends—both commercial and open-source—allowing rapid testing of new ideas while providing performance and resource usage metrics for specific applications. Bambu supports a wide range of FPGA devices from vendors such as AMD/Xilinx, Intel/Altera, Lattice Semiconductor, and NanoXplore. Additionally, Bambu supports ASIC design through its integration with the OpenRoad open-source silicon compiler, further enhancing its utility for comprehensive hardware design and synthesis.
+
+\section{Application Specific Integrated Circuit (ASIC)}
+
+An Application-Specific Integrated Circuit (ASIC) is a type of custom-built semiconductor chip designed for a specific application or task, as opposed to general-purpose chips like CPUs. ASICs are tailored to perform a particular function with optimal efficiency, speed, and power consumption. Once designed and fabricated, ASICs are dedicated to a single task, making them highly efficient in terms of performance and energy consumption compared to general-purpose processors. This customization allows them to outperform other chip types in specific applications, such as cryptography, telecommunications, data processing, and machine learning.
+
+ASICs are ideal when high performance, low power consumption, and compact design are critical. They excel in mass-production scenarios where the overhead of developing a custom chip is offset by large-scale deployment. ASICs are often used in industries like consumer electronics, automotive systems, and telecommunications, where speed and efficiency are paramount. For example, in deep learning accelerators, ASICs are preferred over FPGAs or GPUs when deploying a specific, mature model that requires maximum computational efficiency with minimal power usage. Their ability to process data faster while consuming less energy makes them superior for fixed-function tasks once the design is finalized and the deployment scale justifies the high upfront cost.
+
+The ASIC design flow involves several stages, starting from high-level specifications of the desired functionality to the final tape-out for fabrication. The process begins with system-level design, followed by the creation of the Register Transfer Level (RTL) design using Hardware Description Languages (HDLs). After that, logic synthesis transforms the RTL into a gate-level netlist, which is then mapped to physical components in the placement and routing stages. The design is rigorously tested for timing, power, and performance constraints through simulations and verification processes before it is finally sent for fabrication. This flow ensures that the final chip meets the desired specifications in terms of functionality, performance, and physical constraints.
+
+When an ASIC is generated, various performance metrics can be measured to evaluate its efficiency and suitability for the target application. Key metrics include power consumption, which assesses how much energy the ASIC consumes during operation, and performance or throughput, which measures the speed at which it can process data. Another crucial metric is area, which refers to the physical size of the chip on the silicon wafer, directly influencing the cost of production. Additionally, metrics like timing closure ensure that the chip meets the required clock speed, while yield evaluates the number of functioning chips produced after fabrication. These metrics help in assessing the overall efficiency, cost-effectiveness, and feasibility of the ASIC for large-scale deployment.
+
+\subsubsection{Verilator}
+
+Verilator  \cite{wilson2023verilator} is an open-source, high-performance digital circuit simulator widely used for hardware design verification. Unlike traditional simulators that use event-driven simulation, Verilator converts Verilog hardware description language (HDL) designs into cycle-accurate C++ or SystemC models. These models can then be compiled and executed, allowing for fast simulation of large and complex digital designs. Verilator supports synthesizable Verilog and a subset of SystemVerilog. It is particularly favored in projects requiring high-speed simulation, where traditional event-driven simulators might struggle to meet performance needs. In this thesis, we use Verilator to simulate the design and get the number of clock cycles to finish the operation.
+
+\subsubsection{OpenRoad}
+
+OpenROAD \cite{ajayi2019openroad} is an open-source project aimed at providing a fully autonomous, end-to-end tool-chain for digital integrated circuit (IC) layout implementation. The primary goal of OpenROAD is to enable "self-driving" digital design by automating the entire process from the register-transfer level (RTL) to the final layout without requiring human intervention. The tool-chain covers all major stages of the physical design flow, including floor-planning, placement, clock tree synthesis, routing, and timing/DRC sign-off. In this thesis, we use OpenRoad to generate ASICs and analyze it's Power, Performance, and Area (PPA) metrics.
+
+
+\section{Summary of contributions}
+
+This thesis makes key contributions to hardware acceleration for deep learning using the SODA framework. It addresses challenges in integrating loop optimizations like permutation, tiling, and unrolling into hardware synthesis. Additionally, it refines the framework to enable the synthesis of larger neural networks onto ASICs. A comprehensive design space exploration provides insights into power, performance, and area trade-offs, while heuristic-based techniques significantly narrow the exploration space, improving design efficiency. These contributions enhance the mapping of deep learning models onto hardware with optimized performance and resource usage.
+
+\section{Outline}
+
+To facilitate a clear understanding of the research conducted, the thesis is divided into the following chapters:
+
+\begin{itemize}
+    
+    \item Chapter 2 - Prior Work: This chapter provides brief details of previous work and limitations of current framework. Subsequently, the chapter discusses the research objectives.
+
+    \item Chapter 3 - Implementation: The chapter begins with outlining the functionality of the Design Space Exploration (DSE) tool. It reviews the optimizations applied, types of neural network layers explored and list of popular neural network architectures observed. The latter part of the chapter discusses the modifications made to the existing SODA framework and neural network layers to synthesize larger neural networks. Furthermore, it addresses challenges encountered during the optimization process and discusses High-Level Synthesis (HLS) and ASIC configurations to resolve additional design and implementation issues.
+
+    \item Chapter 4 - Results: This chapter provides a comprehensive analysis of the results for each type of loop optimization and neural network layer investigated. It introduces a heuristic method to streamline the exploration space, enabling more focused design space exploration.
+
+    \item Chapter 5 - Conclusion: This chapter outlines the key contributions of this thesis and outlines possible directions for future work.
+    
+\end{itemize}
